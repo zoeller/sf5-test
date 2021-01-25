@@ -1,3 +1,15 @@
-index:
-    path: /
+test_index:
+    path: /test
     controller: App\Controller\TestController::index
+
+test_mailer:
+    path: /test/mailer
+    controller: App\Controller\TestController::mailer
+
+debug_phpinfo:
+    path: /debug/phpinfo
+    controller: App\Controller\DebugController::phpinfo
+
+debug_vars:
+    path: /debug/vars
+    controller: App\Controller\DebugController::vars

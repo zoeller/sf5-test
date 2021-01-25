@@ -9,12 +9,21 @@ class TestController
 {
     public function index(LoggerInterface $logger): Response
     {
-        $logger->error('An error occurred');
-
         $number = random_int(0, 100);
 
+        $vars = print_r($_SERVER);
+
         return new Response(
-            '<html><body>Lucky number: '.$number.'</body></html>'
+            '<html><body>Server Vars: <pre>'.$vars.'</pre></body></html>'
+        );
+    }
+
+    public function mailer(LoggerInterface $logger): Response
+    {
+        $logger->info('Test mailer');
+
+        return new Response(
+            '<html><body>Test mailer</body></html>'
         );
     }
 }

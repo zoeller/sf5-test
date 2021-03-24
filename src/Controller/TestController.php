@@ -10,21 +10,12 @@ use Symfony\Component\Mime\Email;
 
 class TestController
 {
-    public function index(LoggerInterface $logger): Response
-    {
-        $number = random_int(0, 100);
-
-        $vars = print_r($_SERVER);
-
-        return new Response(
-            '<html><body>Server Vars: <pre>'.$vars.'</pre></body></html>'
-        );
-    }
-
     public function mailer(MailerInterface $mailer, LoggerInterface $logger): Response
     {
+        $fromAddress = $_SERVER['MAILER_FROM'];
+
         $email = (new Email())
-            ->from('no-reply@zoeller.biz')
+            ->from($fromAddress)
             ->to('mischa.zoeller@gmail.com')
             ->subject('Time for Symfony Mailer!')
             ->text('Sending emails is fun again!')

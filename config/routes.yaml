@@ -1,6 +1,6 @@
-test_index:
-    path: /test
-    controller: App\Controller\TestController::index
+front_page:
+    path: /
+    controller: App\Controller\FrontPageController::index
 
 test_mailer:
     path: /test/mailer
